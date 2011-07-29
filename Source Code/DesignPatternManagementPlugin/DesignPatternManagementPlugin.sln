@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLServerCompactTest", "SQLServerCompactTest\SQLServerCompactTest.csproj", "{119F6D0C-DCDD-4ECD-96F5-2C101A52419C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessModel", "BusinessModel\BusinessModel.csproj", "{C83A3F03-44E8-4175-8AFB-9197A06B9752}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{119F6D0C-DCDD-4ECD-96F5-2C101A52419C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{119F6D0C-DCDD-4ECD-96F5-2C101A52419C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{119F6D0C-DCDD-4ECD-96F5-2C101A52419C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C83A3F03-44E8-4175-8AFB-9197A06B9752}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C83A3F03-44E8-4175-8AFB-9197A06B9752}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C83A3F03-44E8-4175-8AFB-9197A06B9752}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C83A3F03-44E8-4175-8AFB-9197A06B9752}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DesignPattern.Store" Alias="Self" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="DesignPatternStoreContainer">
+    <EntitySet Name="PatternModels" EntityType="DesignPattern.Store.PatternModels" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PatternInstances" EntityType="DesignPattern.Store.PatternInstances" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PatternLocations" EntityType="DesignPattern.Store.PatternLocations" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PatternInstancePatternLocation" EntityType="DesignPattern.Store.PatternInstancePatternLocation" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="PatternModelPatternInstance" Association="DesignPattern.Store.PatternModelPatternInstance">
+      <End Role="PatternModel" EntitySet="PatternModels" />
+      <End Role="PatternInstance" EntitySet="PatternInstances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PatternInstancePatternLocation_PatternInstance" Association="DesignPattern.Store.FK_PatternInstancePatternLocation_PatternInstance">
+      <End Role="PatternInstance" EntitySet="PatternInstances" />
+      <End Role="PatternInstancePatternLocation" EntitySet="PatternInstancePatternLocation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PatternInstancePatternLocation_PatternLocation" Association="DesignPattern.Store.FK_PatternInstancePatternLocation_PatternLocation">
+      <End Role="PatternLocation" EntitySet="PatternLocations" />
+      <End Role="PatternInstancePatternLocation" EntitySet="PatternInstancePatternLocation" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="PatternModels">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" Nullable="true" DefaultValue="" />
+    <Property Name="XFrameFilePath" Type="nvarchar" Nullable="false" />
+    <Property Name="SPCTemplateFilePath" Type="nvarchar" Nullable="false" />
+    <Property Name="DesignerTemplateFilePath" Type="nvarchar" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PatternInstances">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" />
+    <Property Name="SPCFilePath" Type="nvarchar" Nullable="false" />
+    <Property Name="CodeFilePath" Type="nvarchar" Nullable="false" />
+    <Property Name="DesignerFilePath" Type="nvarchar" Nullable="false" />
+    <Property Name="PatternModel_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PatternLocations">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="true" DefaultValue="Unknown" />
+    <Property Name="RootPath" Type="nvarchar" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PatternInstancePatternLocation">
+    <Key>
+      <PropertyRef Name="PatternInstances_ID" />
+      <PropertyRef Name="PatternLocations_ID" />
+    </Key>
+    <Property Name="PatternInstances_ID" Type="int" Nullable="false" />
+    <Property Name="PatternLocations_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="PatternModelPatternInstance">
+    <End Role="PatternModel" Type="DesignPattern.Store.PatternModels" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PatternInstance" Type="DesignPattern.Store.PatternInstances" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PatternModel">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PatternInstance">
+        <PropertyRef Name="PatternModel_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PatternInstancePatternLocation_PatternInstance">
+    <End Role="PatternInstance" Type="DesignPattern.Store.PatternInstances" Multiplicity="1" />
+    <End Role="PatternInstancePatternLocation" Type="DesignPattern.Store.PatternInstancePatternLocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PatternInstance">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PatternInstancePatternLocation">
+        <PropertyRef Name="PatternInstances_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PatternInstancePatternLocation_PatternLocation">
+    <End Role="PatternInstancePatternLocation" Type="DesignPattern.Store.PatternInstancePatternLocation" Multiplicity="*" />
+    <End Role="PatternLocation" Type="DesignPattern.Store.PatternLocations" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="PatternLocation">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PatternInstancePatternLocation">
+        <PropertyRef Name="PatternLocations_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

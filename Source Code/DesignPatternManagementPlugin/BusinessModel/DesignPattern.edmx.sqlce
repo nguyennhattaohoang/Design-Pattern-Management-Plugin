@@ -1,0 +1,134 @@
+
+-- --------------------------------------------------
+-- Entity Designer DDL Script for SQL Server Compact Edition
+-- --------------------------------------------------
+-- Date Created: 07/29/2011 18:44:42
+-- Generated from EDMX file: H:\My Projects\FYP\Design Pattern Management Plugin\Source Code\DesignPatternManagementPlugin\BusinessModel\DesignPattern.edmx
+-- --------------------------------------------------
+
+
+-- --------------------------------------------------
+-- Dropping existing FOREIGN KEY constraints
+-- NOTE: if the constraint does not exist, an ignorable error will be reported.
+-- --------------------------------------------------
+
+
+-- --------------------------------------------------
+-- Dropping existing tables
+-- NOTE: if the table does not exist, an ignorable error will be reported.
+-- --------------------------------------------------
+
+
+-- --------------------------------------------------
+-- Creating all tables
+-- --------------------------------------------------
+
+-- Creating table 'PatternModels'
+CREATE TABLE [PatternModels] (
+    [ID] int IDENTITY(1,1) NOT NULL,
+    [Name] nvarchar(4000)  NOT NULL,
+    [Description] nvarchar(4000)  NULL,
+    [XFrameFilePath] nvarchar(4000)  NOT NULL,
+    [SPCTemplateFilePath] nvarchar(4000)  NOT NULL,
+    [DesignerTemplateFilePath] nvarchar(4000)  NOT NULL
+);
+GO
+
+-- Creating table 'PatternInstances'
+CREATE TABLE [PatternInstances] (
+    [ID] int IDENTITY(1,1) NOT NULL,
+    [Name] nvarchar(4000)  NOT NULL,
+    [SPCFilePath] nvarchar(4000)  NOT NULL,
+    [CodeFilePath] nvarchar(4000)  NOT NULL,
+    [DesignerFilePath] nvarchar(4000)  NOT NULL,
+    [PatternModel_ID] int  NOT NULL
+);
+GO
+
+-- Creating table 'PatternLocations'
+CREATE TABLE [PatternLocations] (
+    [ID] int IDENTITY(1,1) NOT NULL,
+    [Name] nvarchar(4000)  NULL,
+    [RootPath] nvarchar(4000)  NOT NULL
+);
+GO
+
+-- Creating table 'PatternInstancePatternLocation'
+CREATE TABLE [PatternInstancePatternLocation] (
+    [PatternInstances_ID] int  NOT NULL,
+    [PatternLocations_ID] int  NOT NULL
+);
+GO
+
+-- --------------------------------------------------
+-- Creating all PRIMARY KEY constraints
+-- --------------------------------------------------
+
+-- Creating primary key on [ID] in table 'PatternModels'
+ALTER TABLE [PatternModels]
+ADD CONSTRAINT [PK_PatternModels]
+    PRIMARY KEY ([ID] );
+GO
+
+-- Creating primary key on [ID] in table 'PatternInstances'
+ALTER TABLE [PatternInstances]
+ADD CONSTRAINT [PK_PatternInstances]
+    PRIMARY KEY ([ID] );
+GO
+
+-- Creating primary key on [ID] in table 'PatternLocations'
+ALTER TABLE [PatternLocations]
+ADD CONSTRAINT [PK_PatternLocations]
+    PRIMARY KEY ([ID] );
+GO
+
+-- Creating primary key on [PatternInstances_ID], [PatternLocations_ID] in table 'PatternInstancePatternLocation'
+ALTER TABLE [PatternInstancePatternLocation]
+ADD CONSTRAINT [PK_PatternInstancePatternLocation]
+    PRIMARY KEY ([PatternInstances_ID], [PatternLocations_ID] );
+GO
+
+-- --------------------------------------------------
+-- Creating all FOREIGN KEY constraints
+-- --------------------------------------------------
+
+-- Creating foreign key on [PatternModel_ID] in table 'PatternInstances'
+ALTER TABLE [PatternInstances]
+ADD CONSTRAINT [FK_PatternModelPatternInstance]
+    FOREIGN KEY ([PatternModel_ID])
+    REFERENCES [PatternModels]
+        ([ID])
+    ON DELETE CASCADE ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_PatternModelPatternInstance'
+CREATE INDEX [IX_FK_PatternModelPatternInstance]
+ON [PatternInstances]
+    ([PatternModel_ID]);
+GO
+
+-- Creating foreign key on [PatternInstances_ID] in table 'PatternInstancePatternLocation'
+ALTER TABLE [PatternInstancePatternLocation]
+ADD CONSTRAINT [FK_PatternInstancePatternLocation_PatternInstance]
+    FOREIGN KEY ([PatternInstances_ID])
+    REFERENCES [PatternInstances]
+        ([ID])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating foreign key on [PatternLocations_ID] in table 'PatternInstancePatternLocation'
+ALTER TABLE [PatternInstancePatternLocation]
+ADD CONSTRAINT [FK_PatternInstancePatternLocation_PatternLocation]
+    FOREIGN KEY ([PatternLocations_ID])
+    REFERENCES [PatternLocations]
+        ([ID])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_PatternInstancePatternLocation_PatternLocation'
+CREATE INDEX [IX_FK_PatternInstancePatternLocation_PatternLocation]
+ON [PatternInstancePatternLocation]
+    ([PatternLocations_ID]);
+GO
+
+-- --------------------------------------------------
+-- Script has ended
+-- --------------------------------------------------

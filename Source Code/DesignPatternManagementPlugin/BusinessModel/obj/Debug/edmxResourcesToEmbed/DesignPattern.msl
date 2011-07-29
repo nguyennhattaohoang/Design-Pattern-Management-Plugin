@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DesignPatternStoreContainer" CdmEntityContainer="DesignPatternContainer">
+    <EntitySetMapping Name="PatternModels">
+      <EntityTypeMapping TypeName="IsTypeOf(DesignPattern.PatternModel)">
+        <MappingFragment StoreEntitySet="PatternModels">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="XFrameFilePath" ColumnName="XFrameFilePath" />
+          <ScalarProperty Name="SPCTemplateFilePath" ColumnName="SPCTemplateFilePath" />
+          <ScalarProperty Name="DesignerTemplateFilePath" ColumnName="DesignerTemplateFilePath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PatternInstances">
+      <EntityTypeMapping TypeName="IsTypeOf(DesignPattern.PatternInstance)">
+        <MappingFragment StoreEntitySet="PatternInstances">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SPCFilePath" ColumnName="SPCFilePath" />
+          <ScalarProperty Name="CodeFilePath" ColumnName="CodeFilePath" />
+          <ScalarProperty Name="DesignerFilePath" ColumnName="DesignerFilePath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PatternLocations">
+      <EntityTypeMapping TypeName="IsTypeOf(DesignPattern.PatternLocation)">
+        <MappingFragment StoreEntitySet="PatternLocations">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="RootPath" ColumnName="RootPath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="PatternModelPatternInstance" TypeName="DesignPattern.PatternModelPatternInstance" StoreEntitySet="PatternInstances">
+      <EndProperty Name="PatternModel">
+        <ScalarProperty Name="ID" ColumnName="PatternModel_ID" />
+      </EndProperty>
+      <EndProperty Name="PatternInstance">
+        <ScalarProperty Name="ID" ColumnName="ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PatternInstancePatternLocation" TypeName="DesignPattern.PatternInstancePatternLocation" StoreEntitySet="PatternInstancePatternLocation">
+      <EndProperty Name="PatternInstance">
+        <ScalarProperty Name="ID" ColumnName="PatternInstances_ID" />
+      </EndProperty>
+      <EndProperty Name="PatternLocation">
+        <ScalarProperty Name="ID" ColumnName="PatternLocations_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

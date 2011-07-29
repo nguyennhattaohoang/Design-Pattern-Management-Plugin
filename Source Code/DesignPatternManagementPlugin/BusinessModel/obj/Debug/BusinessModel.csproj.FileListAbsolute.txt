@@ -1,0 +1,6 @@
+H:\My Projects\FYP\Design Pattern Management Plugin\Source Code\DesignPatternManagementPlugin\BusinessModel\bin\Debug\BusinessModel.dll
+H:\My Projects\FYP\Design Pattern Management Plugin\Source Code\DesignPatternManagementPlugin\BusinessModel\bin\Debug\BusinessModel.pdb
+H:\My Projects\FYP\Design Pattern Management Plugin\Source Code\DesignPatternManagementPlugin\BusinessModel\obj\Debug\ResolveAssemblyReference.cache
+H:\My Projects\FYP\Design Pattern Management Plugin\Source Code\DesignPatternManagementPlugin\BusinessModel\obj\Debug\BusinessModel.dll
+H:\My Projects\FYP\Design Pattern Management Plugin\Source Code\DesignPatternManagementPlugin\BusinessModel\obj\Debug\BusinessModel.pdb
+H:\My Projects\FYP\Design Pattern Management Plugin\Source Code\DesignPatternManagementPlugin\BusinessModel\bin\Debug\BusinessModel.dll.config

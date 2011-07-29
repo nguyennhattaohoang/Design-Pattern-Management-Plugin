@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="DesignPattern" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+  <EntityContainer Name="DesignPatternContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="PatternModels" EntityType="DesignPattern.PatternModel" />
+    <EntitySet Name="PatternInstances" EntityType="DesignPattern.PatternInstance" />
+    <EntitySet Name="PatternLocations" EntityType="DesignPattern.PatternLocation" />
+    <AssociationSet Name="PatternModelPatternInstance" Association="DesignPattern.PatternModelPatternInstance">
+      <End Role="PatternModel" EntitySet="PatternModels" />
+      <End Role="PatternInstance" EntitySet="PatternInstances" />
+    </AssociationSet>
+    <AssociationSet Name="PatternInstancePatternLocation" Association="DesignPattern.PatternInstancePatternLocation">
+      <End Role="PatternInstance" EntitySet="PatternInstances" />
+      <End Role="PatternLocation" EntitySet="PatternLocations" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="PatternModel">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" />
+    <Property Type="String" Name="Description" Nullable="true" DefaultValue="" />
+    <Property Type="String" Name="XFrameFilePath" Nullable="false" />
+    <Property Type="String" Name="SPCTemplateFilePath" Nullable="false" />
+    <Property Type="String" Name="DesignerTemplateFilePath" Nullable="false" />
+    <NavigationProperty Name="PatternInstances" Relationship="DesignPattern.PatternModelPatternInstance" FromRole="PatternModel" ToRole="PatternInstance" />
+  </EntityType>
+  <EntityType Name="PatternInstance">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" />
+    <Property Type="String" Name="SPCFilePath" Nullable="false" />
+    <Property Type="String" Name="CodeFilePath" Nullable="false" />
+    <Property Type="String" Name="DesignerFilePath" Nullable="false" />
+    <NavigationProperty Name="PatternModel" Relationship="DesignPattern.PatternModelPatternInstance" FromRole="PatternInstance" ToRole="PatternModel" />
+    <NavigationProperty Name="PatternLocations" Relationship="DesignPattern.PatternInstancePatternLocation" FromRole="PatternInstance" ToRole="PatternLocation" />
+  </EntityType>
+  <EntityType Name="PatternLocation">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="true" DefaultValue="Unknown" />
+    <Property Type="String" Name="RootPath" Nullable="false" />
+    <NavigationProperty Name="PatternInstances" Relationship="DesignPattern.PatternInstancePatternLocation" FromRole="PatternLocation" ToRole="PatternInstance" />
+  </EntityType>
+  <Association Name="PatternModelPatternInstance">
+    <End Type="DesignPattern.PatternModel" Role="PatternModel" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="DesignPattern.PatternInstance" Role="PatternInstance" Multiplicity="*" />
+  </Association>
+  <Association Name="PatternInstancePatternLocation">
+    <End Type="DesignPattern.PatternInstance" Role="PatternInstance" Multiplicity="*" />
+    <End Type="DesignPattern.PatternLocation" Role="PatternLocation" Multiplicity="*" />
+  </Association>
+</Schema>
