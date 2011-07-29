@@ -1,0 +1,8 @@
+H:\My Projects\FYP\Design Pattern Management Plugin\Source Code\DesignPatternManagementPlugin\SQLServerCompactTest\bin\Debug\SQLServerCompactTest.dll
+H:\My Projects\FYP\Design Pattern Management Plugin\Source Code\DesignPatternManagementPlugin\SQLServerCompactTest\bin\Debug\SQLServerCompactTest.pdb
+H:\My Projects\FYP\Design Pattern Management Plugin\Source Code\DesignPatternManagementPlugin\SQLServerCompactTest\bin\Debug\System.Data.SqlServerCe.dll
+H:\My Projects\FYP\Design Pattern Management Plugin\Source Code\DesignPatternManagementPlugin\SQLServerCompactTest\bin\Debug\System.Data.SqlServerCe.Entity.dll
+H:\My Projects\FYP\Design Pattern Management Plugin\Source Code\DesignPatternManagementPlugin\SQLServerCompactTest\obj\Debug\ResolveAssemblyReference.cache
+H:\My Projects\FYP\Design Pattern Management Plugin\Source Code\DesignPatternManagementPlugin\SQLServerCompactTest\obj\Debug\SQLServerCompactTest.dll
+H:\My Projects\FYP\Design Pattern Management Plugin\Source Code\DesignPatternManagementPlugin\SQLServerCompactTest\obj\Debug\SQLServerCompactTest.pdb
+H:\My Projects\FYP\Design Pattern Management Plugin\Source Code\DesignPatternManagementPlugin\SQLServerCompactTest\bin\Debug\SQLServerCompactTest.dll.config
