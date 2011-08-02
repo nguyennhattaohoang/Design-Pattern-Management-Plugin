@@ -1,0 +1,8 @@
+H:\My Projects\FYP\Design Pattern Management Plugin\Source Code\DesignPatternManagementPlugin\Persistence\bin\Debug\Persistence.dll
+H:\My Projects\FYP\Design Pattern Management Plugin\Source Code\DesignPatternManagementPlugin\Persistence\bin\Debug\Persistence.pdb
+H:\My Projects\FYP\Design Pattern Management Plugin\Source Code\DesignPatternManagementPlugin\Persistence\obj\Debug\ResolveAssemblyReference.cache
+H:\My Projects\FYP\Design Pattern Management Plugin\Source Code\DesignPatternManagementPlugin\Persistence\obj\Debug\Persistence.dll
+H:\My Projects\FYP\Design Pattern Management Plugin\Source Code\DesignPatternManagementPlugin\Persistence\obj\Debug\Persistence.pdb
+H:\My Projects\FYP\Design Pattern Management Plugin\Source Code\DesignPatternManagementPlugin\Persistence\bin\Debug\log4net.dll
+H:\My Projects\FYP\Design Pattern Management Plugin\Source Code\DesignPatternManagementPlugin\Persistence\bin\Debug\BusinessModel.dll
+H:\My Projects\FYP\Design Pattern Management Plugin\Source Code\DesignPatternManagementPlugin\Persistence\bin\Debug\BusinessModel.pdb
